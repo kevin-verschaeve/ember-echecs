@@ -1,15 +1,18 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+	isSelected: false,
 	actions: {
 		prepare: function(x, y, id) {
+			this.isSelected = true;
 			var pions = this.get('model.pions'),
 				plateau = this.get('model.plateau'),
-				i;
+				i,
+				deplacements = [];
 
 			for(i = 0; i < pions.length; i++) {
 				if(pions[i].id === id) {
-					console.log(additionMatrice(x, y, pions[i], plateau));
+					deplacements = additionMatrice(x, y, pions[i], plateau);
 				}
 			}
 		}
