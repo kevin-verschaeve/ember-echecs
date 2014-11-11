@@ -8,6 +8,7 @@ table {
 td {
 	height: 50px;
 	width: 50px;
+	font-size: 50px;
 }
 
 td.odd {
@@ -15,4 +16,9 @@ td.odd {
 }
 td.even {
 	background-color: #fff;
+}
+
+.js-pion {
+	text-decoration: none;
+	color: inherit;
 }
