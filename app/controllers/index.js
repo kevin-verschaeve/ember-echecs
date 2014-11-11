@@ -20,13 +20,24 @@ export default Ember.Controller.extend({
 });
 
 function additionMatrice(x, y, pion, plateau) {
-	var deplacementPossible = [],
+	console.log(pion.matrice);
+
+	
+	var deplacementPossible = [
+		[0, 0, 0, 0, 0, 0, 0, 0],
+		[0, 0, 0, 0, 0, 0, 0, 0],
+		[0, 0, 0, 0, 0, 0, 0, 0],
+		[0, 0, 0, 0, 0, 0, 0, 0],
+		[0, 0, 0, 0, 0, 0, 0, 0],
+		[0, 0, 0, 0, 0, 0, 0, 0],
+		[0, 0, 0, 0, 0, 0, 0, 0],
+		[0, 0, 0, 0, 0, 0, 0, 0]
+	],
 		i, j;
 
-	for(i = 0; i < 15; i++) {
-		deplacementPossible[i] = new Array(15);
-		for(j = 0; j < 15; j++) {
-			deplacementPossible[i][j] = pion.matrice[i][j] + plateau[i+x][j+y];
+	for(i = 0; i < 8; i++) {
+		for(j = 0; j < 8; j++) {
+			deplacementPossible[i][j] = pion.matrice[7 - x + i][7 - y + j] + plateau[i][j];
 		}
 	}
 	return deplacementPossible;
