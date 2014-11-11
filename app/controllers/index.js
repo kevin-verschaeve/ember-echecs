@@ -2,17 +2,40 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
 	actions: {
-		additionMatrice: function(x, y, pion){
-			var deplacementPossible = [];
-			for(var i = 0; i < 15; i++) {
-  				for(var j = 0; j < 15; j++) {
-  					if((x + i) > 7 && (y + j) > 7 && (x + i) < 16 && (y + j) < 16){
-  						deplacementPossible[x + i - 7][y + j - 7] = pion.matrice[i][j] + plateau[i+x][j+y]
-  					}
-  					
-  				}
-  			}
-  			return deplacementPossible;
+		prepare: function(x, y, id) {
+			var pions = this.get('model.pions'),
+				plateau = this.get('model.plateau'),
+				i;
+
+			for(i = 0; i < pions.length; i++) {
+				if(pions[i].id === id) {
+					console.log(additionMatrice(x, y, pions[i], plateau));
+				}
+			}
 		}
 	}
 });
+
+function additionMatrice(x, y, pion, plateau) {
+	console.log(pion.matrice);
+
+	
+	var deplacementPossible = [
+		[0, 0, 0, 0, 0, 0, 0, 0],
+		[0, 0, 0, 0, 0, 0, 0, 0],
+		[0, 0, 0, 0, 0, 0, 0, 0],
+		[0, 0, 0, 0, 0, 0, 0, 0],
+		[0, 0, 0, 0, 0, 0, 0, 0],
+		[0, 0, 0, 0, 0, 0, 0, 0],
+		[0, 0, 0, 0, 0, 0, 0, 0],
+		[0, 0, 0, 0, 0, 0, 0, 0]
+	],
+		i, j;
+
+	for(i = 0; i < 8; i++) {
+		for(j = 0; j < 8; j++) {
+			deplacementPossible[i][j] = pion.matrice[7 - x + i][7 - y + j] + plateau[i][j];
+		}
+	}
+	return deplacementPossible;
+}

@@ -22,3 +22,7 @@ td.even {
 	text-decoration: none;
 	color: inherit;
 }
+
+.selected {
+	border: 2px solid green;
+}
