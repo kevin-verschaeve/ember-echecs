@@ -4,7 +4,6 @@ export default Ember.Route.extend({
 	model: function() {
 		return {
 			plateau: [
-				
 				[1, 1, 1, 1, 1, 1, 1, 1],
 				[1, 1, 1, 1, 1, 1, 1, 1],
 				[0, 0, 0, 0, 0, 0, 0, 0],

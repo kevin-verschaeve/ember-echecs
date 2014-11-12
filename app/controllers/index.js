@@ -4,15 +4,27 @@ export default Ember.Controller.extend({
 	isSelected: false,
 	actions: {
 		prepare: function(x, y, id) {
-			this.isSelected = true;
+			// this.set('isSelected', true);
 			var pions = this.get('model.pions'),
 				plateau = this.get('model.plateau'),
 				i,
-				deplacements = [];
+				deplacements = [],
+				table = htmlTableToArray();
 
 			for(i = 0; i < pions.length; i++) {
 				if(pions[i].id === id) {
 					deplacements = additionMatrice(x, y, pions[i], plateau);
+					break;
+				}
+			}
+
+			for(var j = 0; j < deplacements.length; j++) {
+				for(var k = 0; k < deplacements.length; k++) {
+					if(deplacements[k][j] == 0) {
+						console.log('background', k, j);
+					} else {
+						console.log('var');
+					}
 				}
 			}
 		}
@@ -20,9 +32,6 @@ export default Ember.Controller.extend({
 });
 
 function additionMatrice(x, y, pion, plateau) {
-	console.log(pion.matrice);
-
-	
 	var deplacementPossible = [
 		[0, 0, 0, 0, 0, 0, 0, 0],
 		[0, 0, 0, 0, 0, 0, 0, 0],
@@ -33,12 +42,27 @@ function additionMatrice(x, y, pion, plateau) {
 		[0, 0, 0, 0, 0, 0, 0, 0],
 		[0, 0, 0, 0, 0, 0, 0, 0]
 	],
-		i, j;
+	i, j;
 
 	for(i = 0; i < 8; i++) {
 		for(j = 0; j < 8; j++) {
-			deplacementPossible[i][j] = pion.matrice[7 - x + i][7 - y + j] + plateau[i][j];
+			deplacementPossible[j][i] = pion.matrice[7 - x + j][7 - y + i] + plateau[j][i];
 		}
 	}
 	return deplacementPossible;
+}
+
+function htmlTableToArray() {
+	var myTableArray = [];
+	$("table tr").each(function() {
+	    var arrayOfThisRow = [];
+	    var tableData = $(this).find('td');
+	    if (tableData.length > 0) {
+	        tableData.each(function() {
+	        	arrayOfThisRow.push($(this).text());
+	        });
+	        myTableArray.push(arrayOfThisRow);
+	    }
+	});
+	return myTableArray;
 }
