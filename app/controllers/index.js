@@ -39,6 +39,7 @@ export default Ember.Controller.extend({
 });
 
 function additionMatrice(x, y, pion, plateau) {
+
 	var deplacementPossible = [
 		[0, 0, 0, 0, 0, 0, 0, 0],
 		[0, 0, 0, 0, 0, 0, 0, 0],
