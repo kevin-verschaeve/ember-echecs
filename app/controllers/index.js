@@ -97,5 +97,82 @@ function additionMatrice(x, y, pion, plateau) {
 			deplacementPossible[j][i] =  valeur;
 		}
 	}
+
+
+	var fouTourOuReine = [0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1];
+	if(fouTourOuReine[pion.id] == 1){
+		for(i = 0; i < 8; i++) {
+			for(j = 0; j < 8; j++) {
+				//si case possible pour le moment
+				if(deplacementPossible[j][i] == 0 || deplacementPossible[j][i] == 1){
+					deplacementPossible[j][i] = 0;
+					if(j-y == 0){
+						//cas vertical
+						if(i-x > 1 || x-i > 1){
+							if(i<x){
+								var depart = i + 1;
+								var fin = x - 1;
+							}else{
+								var depart = x + 1;
+								var fin = i - 1; 
+							}
+							for(var z = depart; z < fin; z++){
+								if(deplacementPossible[j][z] != 0){
+									deplacementPossible[j][i] = 1;
+								}
+							}
+						}
+
+					}else if(i-x == 0){
+						//cas horizontal
+						if(j-y > 1 || y-j > 1){
+							if(j<y){
+								var depart = j + 1;
+								var fin = y - 1;
+							}else{
+								var depart = y + 1;
+								var fin = j - 1; 
+							}
+
+							for(var z = depart; z <= fin; z++){
+								if(deplacementPossible[z][i] != 0){
+									deplacementPossible[j][i] = 1;
+								}
+							}
+							
+						}
+
+					}
+					/*else{
+						//cas diagonal
+						if((i-x > 1 || x-i > 1) && (j-y > 1 || y-j > 1)){
+							if(i<x){
+								var depart = i + 1;
+								var fin = x - 1;
+							}else{
+								var depart = x + 1;
+								var fin = i - 1; 
+							}
+							if(j<y){
+								var depart2 = j + 1;
+								var fin2 = y - 1;
+							}else{
+								var depart2 = y + 1;
+								var fin2 = j - 1; 
+							}
+							for(var z = depart; z <= fin; z++){
+								for(var z2 = depart2; z2 <= fin2; z2++){
+									if(deplacementPossible[z][z2] != 0){
+										deplacementPossible[j][i] = 1;
+									}
+								}
+							}
+						}
+					}*/
+				}
+			}
+		}
+	}
+
 	return deplacementPossible;
 }
