@@ -18,16 +18,15 @@ export default Ember.Controller.extend({
 				}
 			}
 
+			resetSelected();
 			var t = '<table>';
 			for(var j = 0; j < deplacements.length; j++) {
 				t += '<tr>';
 				for(var k = 0; k < deplacements.length; k++) {
 					t += '<td>'+deplacements[j][k]+'</td>';
-					// if(deplacements[k][j] == 0 || deplacements[k][j] == 3) {
-					// 	console.log('background', k, j);
-					// } else {
-					// 	console.log('var');
-					// }
+					if(deplacements[j][k] == 0 || deplacements[j][k] == 3) {
+						$('#case_'+k+'_'+j).addClass('selected');
+					}
 				}
 				t += '</tr>';
 			}
@@ -38,8 +37,11 @@ export default Ember.Controller.extend({
 	}
 });
 
-function additionMatrice(x, y, pion, plateau) {
+function resetSelected() {
+	$('td').removeClass('selected');
+}
 
+function additionMatrice(x, y, pion, plateau) {
 	var deplacementPossible = [
 		[0, 0, 0, 0, 0, 0, 0, 0],
 		[0, 0, 0, 0, 0, 0, 0, 0],
