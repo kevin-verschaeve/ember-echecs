@@ -28,6 +28,7 @@ export default Ember.Controller.extend({
 					// } else {
 					// 	console.log('var');
 					// }
+
 				}
 				t += '</tr>';
 			}
@@ -52,9 +53,36 @@ function additionMatrice(x, y, pion, plateau) {
 	],
 	i, j;
 
+	if(pion.id < 7){
+		var couleur = "B";
+	}else{
+		var couleur = "N";
+	}
+
 	for(i = 0; i < 8; i++) {
 		for(j = 0; j < 8; j++) {
-			deplacementPossible[j][i] = pion.matrice[7 - x + i][7 - y + j] + plateau[j][i];
+			
+			var valeur = 0;
+			
+			if((plateau[j][i] == "N" && couleur == "N") || (plateau[j][i] == "B" && couleur == "B")){
+				valeur = 3; //Mes pions
+				pion.matrice[7 - x + i][7 - y + j];
+			}
+			if((plateau[j][i] == "B" && couleur == "N") || (plateau[j][i] == "N" && couleur == "B")){
+				if(pion.matrice[7 - x + i][7 - y + j] == 0 || pion.matrice[7 - x + i][7 - y + j] == 2){
+					valeur = 1; //pion adverse mais déplacement possible
+				}else{
+					valeur = 2; //déplacement impossible
+				}
+			}
+			if(plateau[j][i] == 0){
+				if(pion.matrice[7 - x + i][7 - y + j] == 0){
+					valeur = 0; //case vide et déplacement possible
+				}else{
+					valeur = 2; //déplacement impossible
+				}
+			}
+			deplacementPossible[j][i] =  valeur;
 		}
 	}
 	return deplacementPossible;
