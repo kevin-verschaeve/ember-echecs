@@ -35,7 +35,7 @@ export default Ember.View.extend({
 				t += '<tr>';
 				for(var k = 0; k < deplacements.length; k++) {
 					t += '<td>'+deplacements[j][k]+'</td>';
-					if(deplacements[j][k] == 0) {
+					if(deplacements[j][k] <= 1) {
 						this.cases_accessibles.push('#case_'+k+'_'+j);
 						$('#case_'+k+'_'+j).addClass('selected');
 					}
