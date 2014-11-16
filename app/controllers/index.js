@@ -18,15 +18,22 @@ export default Ember.Controller.extend({
 				}
 			}
 
+			var t = '<table>';
 			for(var j = 0; j < deplacements.length; j++) {
+				t += '<tr>';
 				for(var k = 0; k < deplacements.length; k++) {
-					if(deplacements[k][j] == 0) {
-						console.log('background', k, j);
-					} else {
-						console.log('var');
-					}
+					t += '<td>'+deplacements[j][k]+'</td>';
+					// if(deplacements[k][j] == 0 || deplacements[k][j] == 3) {
+					// 	console.log('background', k, j);
+					// } else {
+					// 	console.log('var');
+					// }
 				}
+				t += '</tr>';
 			}
+			t += '</table>';
+
+			$('.deuxieme').html(t);
 		}
 	}
 });
@@ -46,7 +53,7 @@ function additionMatrice(x, y, pion, plateau) {
 
 	for(i = 0; i < 8; i++) {
 		for(j = 0; j < 8; j++) {
-			deplacementPossible[j][i] = pion.matrice[7 - x + j][7 - y + i] + plateau[j][i];
+			deplacementPossible[j][i] = pion.matrice[7 - x + i][7 - y + j] + plateau[j][i];
 		}
 	}
 	return deplacementPossible;
