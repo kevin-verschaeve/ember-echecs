@@ -66,6 +66,8 @@ export default Ember.View.extend({
 				this.set('pion', $(clicked));
 				this.set('old', td_parent);
 				this.cases_accessibles = [];
+
+				td_parent.addClass('pion-selected');
 			}
 		} else {
 			this.set('isSelected', true);
@@ -86,7 +88,7 @@ export default Ember.View.extend({
 });
 
 function resetSelected() {
-	$('td').removeClass('selected');
+	$('td').removeClass('selected pion-selected');
 }
 
 function additionMatrice(x, y, pion, plateau) {
