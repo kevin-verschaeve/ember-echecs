@@ -8,18 +8,35 @@ export default Ember.View.extend({
 	pion: null,
 	old: null,
 	click: function(e) {
-		// if(this.isSelected == false) {
-			this.set('isSelected', true);
+		var plateau = this.get('controller.model.plateau');
+		var t = '<table>';
+		for(var j = 0; j < plateau.length; j++) {
+			t += '<tr>';
+			for(var k = 0; k < plateau.length; k++) {
+				t += '<td>'+plateau[j][k]+'</td>';
+			}
+			t += '</tr>';
+		}
+		t += '</table>';
 
-			var clicked = e.target,
-				td_parent = $(e.target).parent('td'),
-				pions = this.get('controller.model.pions'),
-				plateau = this.get('controller.model.plateau'),
-				i,
-				deplacements = [],
-				id = $(clicked).data('id_pion'),
-				x = td_parent.data('x'),
-				y = td_parent.data('y');
+		$('.plateau').html(t);
+
+
+
+		var clicked = e.target,
+			td_parent = $(e.target).parent('td'),
+			pions = this.get('controller.model.pions'),
+			plateau = this.get('controller.model.plateau'),
+			i,
+			deplacements = [],
+			id = $(clicked).data('id_pion'),
+			x = td_parent.data('x'),
+			y = td_parent.data('y');
+
+
+		if(!td_parent.hasClass('selected')) {
+			resetSelected();
+			this.set('isSelected', false);
 
 			for(i = 0; i < pions.length; i++) {
 				if(pions[i].id === id) {
@@ -29,7 +46,6 @@ export default Ember.View.extend({
 				}
 			}
 
-			// resetSelected();
 			var t = '<table>';
 			for(var j = 0; j < deplacements.length; j++) {
 				t += '<tr>';
@@ -46,14 +62,16 @@ export default Ember.View.extend({
 
 			$('.deuxieme').html(t);
 
-
 			if($(clicked).hasClass('pion') && this.cases_accessibles.indexOf('#'+td_parent.attr('id')) == -1) {
 				this.set('pion', $(clicked));
 				this.set('old', td_parent);
 				this.cases_accessibles = [];
 			}
+		} else {
+			this.set('isSelected', true);
 
 			if(td_parent.hasClass('selected')) {
+				console.log(clicked, this.pion, this.old, plateau, this.couleur_pion);
 				plateau = deplacePion(clicked, this.pion, this.old, plateau, this.couleur_pion);
 				this.set('controller.model.plateau', plateau);
 
@@ -63,11 +81,7 @@ export default Ember.View.extend({
 				this.set('pion', null);
 				this.set('old', null);
 			}
-
-		// } else {
-		// 	this.set('isSelected', false);
-		// 	resetSelected();
-		// }
+		}
 	}
 });
 
