@@ -141,7 +141,7 @@ function additionMatrice(x, y, pion, plateau) {
 							}
 							for(var z = depart; z < fin; z++){
 								if(deplacementPossible[j][z] != 0){
-									deplacementPossible[j][i] = 1;
+									deplacementPossible[j][i] = 2;
 								}
 							}
 						}
@@ -159,7 +159,7 @@ function additionMatrice(x, y, pion, plateau) {
 
 							for(var z = depart; z <= fin; z++){
 								if(deplacementPossible[z][i] != 0){
-									deplacementPossible[j][i] = 1;
+									deplacementPossible[j][i] = 2;
 								}
 							}
 
@@ -186,7 +186,7 @@ function additionMatrice(x, y, pion, plateau) {
 							for(var z = depart; z <= fin; z++){
 								for(var z2 = depart2; z2 <= fin2; z2++){
 									if(deplacementPossible[z][z2] != 0){
-										deplacementPossible[j][i] = 1;
+										deplacementPossible[j][i] = 2;
 									}
 								}
 							}
