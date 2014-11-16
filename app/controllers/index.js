@@ -26,7 +26,7 @@ export default Ember.Controller.extend({
 					t += '<tr>';
 					for(var k = 0; k < deplacements.length; k++) {
 						t += '<td>'+deplacements[j][k]+'</td>';
-						if(deplacements[j][k] <= 1) {
+						if(deplacements[j][k] == 0) {
 							this.cases_accessibles.push('#case_'+k+'_'+j);
 
 							$('#case_'+k+'_'+j).addClass('selected');
@@ -114,7 +114,7 @@ function additionMatrice(x, y, pion, plateau) {
 								var fin = x - 1;
 							}else{
 								var depart = x + 1;
-								var fin = i - 1; 
+								var fin = i - 1;
 							}
 							for(var z = depart; z < fin; z++){
 								if(deplacementPossible[j][z] != 0){
@@ -131,7 +131,7 @@ function additionMatrice(x, y, pion, plateau) {
 								var fin = y - 1;
 							}else{
 								var depart = y + 1;
-								var fin = j - 1; 
+								var fin = j - 1;
 							}
 
 							for(var z = depart; z <= fin; z++){
@@ -139,7 +139,7 @@ function additionMatrice(x, y, pion, plateau) {
 									deplacementPossible[j][i] = 1;
 								}
 							}
-							
+
 						}
 
 					}
@@ -151,14 +151,14 @@ function additionMatrice(x, y, pion, plateau) {
 								var fin = x - 1;
 							}else{
 								var depart = x + 1;
-								var fin = i - 1; 
+								var fin = i - 1;
 							}
 							if(j<y){
 								var depart2 = j + 1;
 								var fin2 = y - 1;
 							}else{
 								var depart2 = y + 1;
-								var fin2 = j - 1; 
+								var fin2 = j - 1;
 							}
 							for(var z = depart; z <= fin; z++){
 								for(var z2 = depart2; z2 <= fin2; z2++){
