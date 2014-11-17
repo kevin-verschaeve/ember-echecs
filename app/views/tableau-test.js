@@ -21,8 +21,6 @@ export default Ember.View.extend({
 
 		$('.plateau').html(t);
 
-
-
 		var clicked = e.target,
 			td_parent = $(e.target).parent('td'),
 			pions = this.get('controller.model.pions'),
@@ -73,7 +71,6 @@ export default Ember.View.extend({
 			this.set('isSelected', true);
 
 			if(td_parent.hasClass('selected')) {
-				console.log(clicked, this.pion, this.old, plateau, this.couleur_pion);
 				plateau = deplacePion(clicked, this.pion, this.old, plateau, this.couleur_pion);
 				this.set('controller.model.plateau', plateau);
 

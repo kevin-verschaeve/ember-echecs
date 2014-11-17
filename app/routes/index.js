@@ -277,6 +277,13 @@ export default Ember.Route.extend({
 						[1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1],
 						[0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0]
 					]
+			  	}),
+			  	// on se sert de ce pion dans le helper grille-loop
+			  	Ember.Object.create({
+			  		id: 13,
+			  		nom: 'pas un vrai pion, mais utile',
+			  		image: '',
+			  		matrice: []
 			  	})
 			]
 		};
