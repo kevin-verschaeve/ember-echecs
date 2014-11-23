@@ -51,3 +51,7 @@ a {
 .fleft {
 	float: left;
 }
+
+.pions_supprimes {
+	font-size: 50px;
+}

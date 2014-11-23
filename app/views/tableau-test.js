@@ -222,9 +222,10 @@ function deplacePion(clicked, pion, old, plateau, couleur_pion) {
 	var x_old = old.data('x'),
 		y_old = old.data('y'),
 		x_new = $(clicked).parent('td').data('x'),
-		y_new = $(clicked).parent('td').data('y');
+		y_new = $(clicked).parent('td').data('y'),
+		image = $(clicked).text();
 
-
+	$('.pions_supprimes').append(image);
 	old.html('<a href="#"></a>');
 	$(clicked).parent('td').empty().html(pion);
 
