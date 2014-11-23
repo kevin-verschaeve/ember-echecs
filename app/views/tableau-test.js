@@ -7,7 +7,11 @@ export default Ember.View.extend({
 	couleur_pion: '',
 	pion: null,
 	old: null,
+	joueur: 'blanc',
+	joueurs: {'blanc': 'noir', 'noir': 'blanc'},
 	click: function(e) {
+		/*
+		* Pour du débug seulement: affiche la valeur d'une case
 		var plateau = this.get('controller.model.plateau');
 		var t = '<table>';
 		for(var j = 0; j < plateau.length; j++) {
@@ -20,6 +24,7 @@ export default Ember.View.extend({
 		t += '</table>';
 
 		$('.plateau').html(t);
+		*/
 
 		var clicked = e.target,
 			td_parent = $(e.target).parent('td'),
@@ -44,21 +49,21 @@ export default Ember.View.extend({
 				}
 			}
 
-			var t = '<table>';
+			// commenté: pour le debug, affiche les pions et leurs emplacements
+			// var t = '<table>';
 			for(var j = 0; j < deplacements.length; j++) {
-				t += '<tr>';
+				// t += '<tr>';
 				for(var k = 0; k < deplacements.length; k++) {
-					t += '<td>'+deplacements[j][k]+'</td>';
+					// t += '<td>'+deplacements[j][k]+'</td>';
 					if(deplacements[j][k] <= 1) {
 						this.cases_accessibles.push('#case_'+k+'_'+j);
 						$('#case_'+k+'_'+j).addClass('selected');
 					}
 				}
-				t += '</tr>';
+				// t += '</tr>';
 			}
-			t += '</table>';
-
-			$('.deuxieme').html(t);
+			// t += '</table>';
+			// $('.deuxieme').html(t);
 
 			if($(clicked).hasClass('pion') && this.cases_accessibles.indexOf('#'+td_parent.attr('id')) == -1) {
 				this.set('pion', $(clicked));

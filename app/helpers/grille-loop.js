@@ -20,7 +20,7 @@ export default Ember.Handlebars.makeBoundHelper(function(pions) {
   		grille += '<tr>';
   		for(j = 0; j < 8; j++) {
   			grille += '<td id="case_'+j+'_'+i+'" class="'+cell_class+'" data-x="'+j+'" data-y="'+i+'">';
-  			grille += '<a href="#" class="pion" data-id_pion="'+matrice_pions[i][j].id+'">'+matrice_pions[i][j].image+'</a>';
+        grille += '<a href="#" class="pion" data-couleur="'+matrice_pions[i][j].couleur+'" data-id_pion="'+matrice_pions[i][j].id+'">'+matrice_pions[i][j].image+'</a>';
   			grille += '</td>';
   			cell_class = changeClass(cell_class);
   		}

@@ -18,6 +18,7 @@ export default Ember.Route.extend({
 					id: 1,
 					nom: 'pion',
 					image: '&#9817;',
+					couleur: 'blanc',
 					matrice: [
 						[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
 						[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
@@ -40,6 +41,7 @@ export default Ember.Route.extend({
 			  		id: 2,
 			  		nom: 'tour',
 			  		image: '&#9814;',
+					couleur: 'blanc',
 			  		matrice: [
 						[1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1],
 						[1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1],
@@ -62,6 +64,7 @@ export default Ember.Route.extend({
 			  		id: 3,
 			  		nom: 'cavalier',
 			  		image: '&#9816;',
+					couleur: 'blanc',
 			  		matrice: [
 						[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
 						[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
@@ -84,6 +87,7 @@ export default Ember.Route.extend({
 			  		id: 4,
 			  		nom: 'fou',
 			  		image: '&#9815;',
+					couleur: 'blanc',
 			  		matrice: [
 						[0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
 						[1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1],
@@ -106,6 +110,7 @@ export default Ember.Route.extend({
 			  		id: 5,
 			  		nom: 'roi',
 			  		image: '&#9812;',
+					couleur: 'blanc',
 			  		matrice: [
 				  		[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
 						[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
@@ -128,6 +133,7 @@ export default Ember.Route.extend({
 			  		id: 6,
 			  		nom: 'reine',
 			  		image: '&#9813;',
+					couleur: 'blanc',
 			  		matrice: [
 						[0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0],
 						[1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1],
@@ -150,6 +156,7 @@ export default Ember.Route.extend({
 					id: 7,
 					nom: 'pion',
 					image: '&#9823;',
+					couleur: 'noir',
 					matrice: [
 						[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
 						[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
@@ -172,6 +179,7 @@ export default Ember.Route.extend({
 			  		id: 8,
 			  		nom: 'tour',
 			  		image: '&#9820;',
+					couleur: 'noir',
 			  		matrice: [
 						[1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1],
 						[1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1],
@@ -194,6 +202,7 @@ export default Ember.Route.extend({
 			  		id: 9,
 			  		nom: 'cavalier',
 			  		image: '&#9822;',
+					couleur: 'noir',
 			  		matrice: [
 						[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
 						[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
@@ -216,6 +225,7 @@ export default Ember.Route.extend({
 			  		id: 10,
 			  		nom: 'fou',
 			  		image: '&#9821;',
+					couleur: 'noir',
 			  		matrice: [
 						[0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
 						[1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1],
@@ -238,6 +248,7 @@ export default Ember.Route.extend({
 			  		id: 11,
 			  		nom: 'roi',
 			  		image: '&#9818;',
+					couleur: 'noir',
 			  		matrice: [
 				  		[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
 						[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
@@ -260,6 +271,7 @@ export default Ember.Route.extend({
 			  		id: 12,
 			  		nom: 'reine',
 			  		image: '&#9819;',
+					couleur: 'noir',
 			  		matrice: [
 						[0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0],
 						[1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1],
@@ -283,6 +295,7 @@ export default Ember.Route.extend({
 			  		id: 13,
 			  		nom: 'pas un vrai pion, mais utile',
 			  		image: '',
+					couleur: '',
 			  		matrice: []
 			  	})
 			]
